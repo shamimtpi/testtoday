@@ -449,7 +449,7 @@ $.getJSON('https://api.gosquared.com/now/v3/pages?api_key=demo&site_token=GSN-10
                             	<li><a href="{{$url}}/page/privacy-policy">Privacy Policy</a></li>
                             	<li><a href="{{$url}}/page/terms-conditions">Terms and Condition</a></li>
                             	<li><a href="{{$url}}/page/return-and-refund-policy">Refund Policy</a></li>
-                            	<li><a href="{{$url}}/contact-us">Contact us</a></li>
+                            	<li><a href="{{$url}}/contact-us">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
