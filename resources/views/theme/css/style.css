@@ -1,4 +1,8 @@
 
+/*******************************
+     BASE CSS
+*******************************/
+
 body {
     font-size: 14px;
     line-height: 23px;
@@ -68,6 +72,15 @@ button:active,
     outline:0;
     box-shadow: none;
    
+}
+
+.cp_container{
+    max-width:1350px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 

@@ -164,7 +164,7 @@ var infolinks_wsid = 0;
      
 <footer class="footer-area">
         <div class="footer-top">
-            <div class="container-fluid">
+            <div class="cp_container">
                 <div class="row">
                  
 
