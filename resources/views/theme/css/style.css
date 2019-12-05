@@ -144,6 +144,9 @@ label {
     Firefox 19+color: #666666;
     opacity: 1;
 }
+.cc-revoke, .cc-window{
+    z-index: 99999999999999 !important
+}
 
 .weight400 {
     font-weight: 400 !important;
