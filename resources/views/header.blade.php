@@ -122,7 +122,7 @@ $check_sett_purchase = DB::table('settings_metas')
                       
                     @endif
 @if(Auth::check())
-<a class="user_board_mobile" href="#user_board"><img style="margin-left:5px" width="40" height="40" src="{{asset('local/images/media/userphoto/')}}/{{Auth::user()->photo}}" alt=""></a>
+<a class="user_board_mobile" href="#user_board"><img style="margin-left:5px" width="40" height="40" src="{{asset('local/images/media/userphoto/')}}/{{Auth::user()->photo}}" alt="{{Auth::user()->name}}"></a>
 @else
 
 

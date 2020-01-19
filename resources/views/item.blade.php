@@ -1195,7 +1195,7 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                             <a href="<?php echo $url;?>/login" class="custom-btn"><i class="fa fa-download"></i> <?php echo translate( 592, $lang);?></a>
                             <?php } ?>
                             <br>
-                            <a class="btn btn-warning mt-5" href="{{$url}}/page/donate">Donate Now</a>
+                            <a target="blank" class="btn btn-warning mt-5" href="https://docs.google.com/forms/d/e/1FAIpQLSczR9To_IpxC5fbUfZtkR_PkPBzTWdWc3bnhyKOdcnqSyeB2w/viewform">Get a Quote</a>
                             </div>
                             <div class="height20"></div>
                         </div>
