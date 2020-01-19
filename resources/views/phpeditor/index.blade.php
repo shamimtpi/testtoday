@@ -46,11 +46,6 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 <div class="editor_warraper">
 <div class="editor_left_area">
  
- <script type="text/javascript">
-var bannersnack_embed = {"hash":"bdk30n33x","width":180,"height":600,"t":1573901332,"userId":40016719,"type":"html5"};
-</script>
-<script type="text/javascript" src="//cdn.bannersnack.com/iframe/embed.js"></script>
- 
 </div>
 <div class="code php_editor_area">
     
@@ -79,7 +74,7 @@ var bannersnack_embed = {"hash":"bdk30n33x","width":180,"height":600,"t":1573901
 }
 .editor_left_area{
     color: #fff;
-    width: 20%;
+    width: 00%;
     text-align:center;
     height:100vh;
     display:flex;
@@ -89,7 +84,7 @@ var bannersnack_embed = {"hash":"bdk30n33x","width":180,"height":600,"t":1573901
 
 .editor_right_area{
   color: #fff;
-  width: 20%;
+  width: 0%;
   display:flex;
   align-items:center;
   justify-content:center;
