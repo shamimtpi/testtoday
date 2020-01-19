@@ -61,7 +61,6 @@ a:focus {
 ul,
 ol {
     margin: 0;
-    list-style: none;
 }
 button{
   cursor: pointer

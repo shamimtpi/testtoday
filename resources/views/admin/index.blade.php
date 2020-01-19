@@ -243,9 +243,11 @@ chart.render();
 						if($blogs->post_media_type=="image"){
 						?>
 						 <img src="<?php echo $url.$path;?>" class="thumb" width="55">
-						 <?php } if($blogs->post_media_type=="mp3"){ ?>
+						 <?php } 
+             if($blogs->post_media_type=="mp3"){ ?>
 						  <img src="<?php echo $url.'/local/images/mp3.png';?>" class="thumb" width="55">
-						 <?php } if($blogs->post_media_type=="video"){ ?>
+						 <?php }
+              if($blogs->post_media_type=="video"){ ?>
 						  <img src="<?php echo $url.'/local/images/video.png';?>" class="thumb" width="55">
 						 <?php  } ?>
                           </td>
