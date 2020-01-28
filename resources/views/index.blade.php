@@ -703,7 +703,7 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
             <div class="row">
                <div class="col-md-12">
                     <div class="section-intro">
-                        <h2 class="section-title"><?php echo translate( 64, $lang);?></h2><?php echo translate( 64, $lang);?>
+                        <h2 class="section-title"><?php echo translate( 64, $lang);?></h2>
                     
                     </div>
                 </div>
@@ -765,6 +765,8 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
      </section>
     
     <!--End Free Item Section-->
+
+  
    
     <!-- PROMO AREA START HERE -->
     <section class="<?php if($site_feed == "on") {?>feature-product-area<?php } else { ?>promo-area<?php } ?> section-padding">
