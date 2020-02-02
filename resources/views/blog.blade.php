@@ -172,7 +172,13 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                                       
                                     </a>
                                 </h3>
-                              <p>{{html_entity_decode(substr($blog->post_desc,0,110)).'..'}}</p>
+
+
+                              <p>{!!(substr($blog->post_desc,0,110)).'..'!!}</p>
+
+
+
+
                              <div class="clearfix"></div>
                              <div class="float-left">
 <div class="text-left"><a href="<?php echo $url;?>/blog/<?php echo $blog->post_slug;?>" class="custom-btn"><?php echo translate( 232, $lang);?></a></div>

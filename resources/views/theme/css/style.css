@@ -3010,6 +3010,7 @@ main {
 .single-product .nav-tabs>li {
     margin-bottom: 0px;
     position: relative;
+    padding: 13px 3px;
 }
 
 .single-product .nav-tabs>li>a {

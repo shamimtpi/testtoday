@@ -1,5 +1,4 @@
 
-
 <?php
 $default = DB::table('codepopular_langs')
 	              ->where('lang_default','=',1)
@@ -83,6 +82,10 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 
 <script src="<?php echo $url;?>/local/resources/views/theme/video/videopopup.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $url;?>/local/resources/views/theme/video/videopopup.css" media="screen" />
+
+
+ <link rel="stylesheet" href="https://www.codester.com/static/js/lightbox/themes/classic/jquery.lightbox.css" type="text/css" />
+
 </head>
 <body class="index">
 
@@ -328,38 +331,69 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 				                      ->first();		  
 						  ?>
                     
-                                <a href="javascript:void(0);" class="custom-btn lumos-link thumbnail" id="image-1"><?php echo translate( 544, $lang);?> <i class="fa fa-eye"></i></a>
+
+              <a class="lightbox custom-btn lumos-link sc_btn" href="" rel="screenshots">          
+                            <?php echo translate( 544, $lang);?> <i class="fa fa-eye"></i>
+              </a>
+
+
+             {{-- Start product screenshot --}}
+            <div class="product-screenshots">
+
+               <?php 
+               if(!empty($viewimg_counter)){
+                  $viewimg_get = DB::table('product_images')
+                                 ->where('item_token', '=' , $item_token)
+                                 ->get();
+                  foreach($viewimg_get as $gallery){
+                    if($site_file_upload_by == "s3_server"){ ?>
+
+                   <?php $ggimg = Storage::disk('s3')->url($gallery->image);?>
+                     <script>
+                        $(".sc_btn").attr("href", "{{$ggimg}}");
+                      </script>
+                    <div class="col-xs-2 ">
+                      <div class="item">
+                        <div class="screenshot-box" id="screenshots">
+                          <a class="lightbox" href="<?php echo $ggimg;?>" rel="screenshots">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <?php } else {?>
+
+                        <script>
+                          $(".sc_btn").attr("href", "<?php echo $url;?>/local/images/media/screenshots/{{$gallery->image}}");
+                        </script>
+                     <div class="col-xs-2 ">
+                        <div class="item">
+                            <div class="screenshot-box" id="screenshots">
+                                <a class="lightbox" href="<?php echo $url;?>/local/images/media/screenshots/<?php echo $gallery->image;?>">
+                                </a>
+                            </div>
+                        </div>
+                     </div>
+              </div>          
+              <?php } } } ?>
+            </div>
+
+            {{-- End product screenshot --}}
+
+
+
+
+
+
+
+
+
                     <?php } ?>
                     
                     
 
 
 
-                    
-                    <div class="d-none" id="img-repo">
-          
-                    <?php 
-                    if(!empty($viewimg_counter)){
-					  $viewimg_get = DB::table('product_images')
-		                              ->where('item_token', '=' , $item_token)
-				                      ->get();
-					  foreach($viewimg_get as $gallery){ if($site_file_upload_by == "s3_server"){
-					  
-					  $ggimg = Storage::disk('s3')->url($gallery->image);
-					  ?>
-                    
-                    
-                    <div class="item" id="image-1">
-			<img class="thumbnail img-responsive" title="" src="<?php echo $ggimg;?>" alt="image">
-		</div>
-        <?php } else {?>
-        <div class="item" id="image-1">
-			<img class="thumbnail img-responsive" title="image" src="<?php echo $url;?>/local/images/media/screenshots/<?php echo $gallery->image;?>" alt="image">
-		</div>
-                    
-               <?php } } } ?>
-
-                    </div>
                     
 
 
@@ -368,10 +402,6 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 
 
 
-
-
-    
-                        
 
 
 
@@ -414,29 +444,7 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                         </div>
                         
  
-<div class="modal" id="modal-gallery" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-          <button class="close black fontsize20" type="button" data-dismiss="modal"><i class="fa fa-times-circle-o fontsize20" aria-hidden="true"></i></button>
-          <h3 class="modal-title"></h3>
-      </div>
-      <div class="modal-body">
-          <div id="modal-carousel" class="carousel">
-   
-            <div class="carousel-inner">           
-            </div>
-            
-            <a class="carousel-control new-control left" href="#modal-carousel" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-            <a class="carousel-control new-control right" href="#modal-carousel" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-            
-          </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
-                        
+               
 
 
 
@@ -1850,8 +1858,18 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 </main>
 	
 
+    <script src="{{asset('local/public/contents/frontend')}}/js/jquery.lightbox.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        $('.lightbox').lightbox();
+    });
+    </script>
 	
 	
-      @include('footer')
+      @include('footer') 
+
+  
+        
 </body>
 </html>
