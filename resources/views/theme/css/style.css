@@ -5651,9 +5651,57 @@ PRODUCT COUPON
     margin-left: 3px;
 }
 
-.itemauthor {
-    max-width: 80px;
-    border-radius: 50px;
+.author-card{
+  overflow:hidden;
+}
+
+.author-card .author-card-bg{
+      background-color: #314554;
+       height: 90px;
+}
+
+.author-card .author-img {
+    margin-top: -35px;
+}
+
+
+
+.author-card .author-cardinfo {
+    z-index: 99;
+    position: relative;
+    border: 3px solid #ffffff;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding:0px 15px;
+  
+}
+.author-card .author-img a img {
+    display: inline-block;
+    max-width: 90px;
+    width: 100%;
+    border:2px solid #fff;
+}
+
+.author-card .author-username {
+    font-size: 19px;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    font-weight: 600;
+    color: #555;
+}
+.author-card .flag {
+    padding: 20px 0px;
+    text-align: center;
+}
+
+
+.author-profile-link a{
+  border:1px solid #ccc;
+  text-align: center;
+  width:100%;
+  margin-bottom: 25px;
+  color:#666666;
 }
 
 .newbann {

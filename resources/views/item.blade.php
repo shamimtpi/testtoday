@@ -1103,7 +1103,6 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                                 
                                 
                                 
-                                
                                 <div role="tabpanel" class="tab-pane fade" id="support">
                                     <div class="item-support">
                                         <h3><?php echo translate( 568, $lang);?></h3>
@@ -1188,12 +1187,14 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 		
 						   ?>
                 
-                
-                <div class="col-md-4 col-sm-12">
+<!---------------------------------------- 
+         Start item Sidebar 
+------------------------------------------>                
+                 <div class="col-md-4 col-sm-12">
                     <aside class="product-sidebar">
                        
                         
-                    <?php if($free_status=="yes"){?>
+                    @if($free_status=="yes")
                     <div class="product-widget">
                            <div class="item-information"><?php echo translate( 583, $lang);?> <a href="<?php echo $url;?>/free-items"><?php echo translate( 586, $lang);?></a>. <?php echo translate( 589, $lang);?></div>
                             <div  align="center">
@@ -1207,7 +1208,8 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                             </div>
                             <div class="height20"></div>
                         </div>
-                    <?php } ?>
+                    @endif
+
                      <form class="" role="form" method="POST" action="{{ route('item') }}" id="formID" enctype="multipart/form-data">
                        {{ csrf_field() }}
                     
@@ -1322,13 +1324,184 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                             </div>
                         </div>
                         <?php } ?>
-                        
-                        
+
+
+
+
+
+
+      
+
+
+
+
+<!-- Start profile card -->
+                <div class="product-widget author-card">
+                    <a href="{{$url}}/{{$author_slug}}">
+                        <div class="author-card-bg">
+
+                        </div>
+                    </a>
+                    <div class="author-cardinfo ">
+                        <div class="d-flex">
+                            <div class="author-img">
+                                <a href="{{$url}}/{{$author_slug}}">
+                                   @if(!empty($author_photo))
+                                    <img src="{{$url}}/local/images/media/userphoto/{{$author_photo}}" alt="{{$author}}">
+                                   @else
+                                   <img src="{{$url}}/local/images/nophoto.jpg" alt="{{$author}}">
+                                   @endif
+                                </a>
+                            </div>
+                            <div class="author-username">{{$author}}</div>
+                        </div>
+                        <div class="flag">
+                            
+
+
+
+
+
+
+             <?php if($profile_badges=="on"){?>
+              <?php if(!empty($country_view)){?>
+                            <img src="<?php echo $url;?>/local/images/media/flag/<?php echo $country_view;?>" alt="<?php echo translate( 1134, $lang);?> <?php echo $country_text;?>" title="<?php echo translate( 1134, $lang);?> <?php echo $country_text;?>">
+                            
+              <?php } ?>
+              <?php } ?>
+                            
+                            <?php
+              $from_date = strtotime($datter);
+     $today_date = strtotime(date("Y-m-d H:i:s"));
+     $diff = abs($today_date - $from_date);
+     $get_years = floor($diff / (365*60*60*24));
+     if($get_years == 1) { $year_badges = "1.png"; $member_year = translate( 1140, $lang); }
+     else if($get_years == 2) { $year_badges = "2.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 3) { $year_badges = "3.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 4) { $year_badges = "4.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 5) { $year_badges = "5.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 6) { $year_badges = "6.png";  $member_year = translate( 1143, $lang); }
+     else if($get_years == 7) { $year_badges = "7.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 8) { $year_badges = "8.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 9) { $year_badges = "9.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years == 10) { $year_badges = "10.png"; $member_year = translate( 1143, $lang); }
+     else if($get_years > 10) { $year_badges = "10_plus.png"; $member_year = translate( 1143, $lang); }
+     else {$year_badges = ""; $member_year = ""; }
+     ?>
+                            
+                            <?php if(!empty($datter)){ if(!empty($get_years)){?>
+                  <img src="<?php echo $url;?>/local/images/badges/<?php echo $year_badges;?>" alt="<?php echo $get_years;?> <?php echo $member_year;?>" title="<?php echo $get_years;?> <?php echo $member_year;?>">
+                  <?php } } ?>
+                  
+                   <?php if($minimum_sells < $proders_details){?>
+                  
+                    <img src="<?php echo $url;?>/local/images/badges/exclusive.png" alt="<?php echo translate( 1146, $lang);?>" title="<?php echo translate( 1146, $lang);?>">
+                       <?php } ?>  
+                     
+                       <?php if(!empty($trends_details)){?>
+                        <img src="<?php echo $url;?>/local/images/badges/trends.png" alt="<?php echo translate( 1149, $lang);?>" title="<?php echo translate( 1149, $lang);?>">
+                         <?php } ?>
+                         
+                         <?php if($sold_price >= $author_level_one && $author_level_two >= $sold_price){ $sold_badges = "sold1.png"; $level_no = 1; $level_price = $author_level_one; } 
+             else if($sold_price >= $author_level_two && $author_level_three >= $sold_price){ $sold_badges = "sold2.png"; $level_no = 2; $level_price = $author_level_two; }
+             else if($sold_price >= $author_level_three && $author_level_four >= $sold_price){ $sold_badges = "sold3.png"; $level_no = 3; $level_price = $author_level_three;}
+             else if($sold_price >= $author_level_four && $author_level_five >= $sold_price){ $sold_badges = "sold4.png"; $level_no = 4; $level_price = $author_level_four;}
+             else if($sold_price >= $author_level_five && $author_level_six >= $sold_price){ $sold_badges = "sold5.png"; $level_no = 5; $level_price = $author_level_five;}
+             else if($sold_price >= $author_level_six){ $sold_badges = "sold6.png"; $level_no = 6; $level_price = $author_level_six;}
+             else { $sold_badges = ""; $level_no = 0; $level_price = 0;}
+             ?>
+                         
+                          <?php  if(!empty($sold_price)){ if(!empty($sold_badges)){ ?>
+                        <img src="<?php echo $url;?>/local/images/badges/<?php echo $sold_badges;?>" alt="<?php echo translate( 1155, $lang);?> <?php echo $level_no.' : ';?> <?php echo translate( 1158, $lang);?> <?php echo $setts[0]->site_currency;?> <?php echo $level_price.'+';?> <?php echo translate( 454, $lang);?> <?php echo translate( 25, $lang);?>" title="<?php echo translate( 1155, $lang);?> <?php echo $level_no.' : ';?> <?php echo translate( 1158, $lang);?> <?php echo $setts[0]->site_currency;?> <?php echo $level_price.'+';?> <?php echo translate( 454, $lang);?> <?php echo translate( 25, $lang);?>" style="border-radius:0px;">
+                         <?php } } ?>
+                         
+                         <?php if($sold_price >= $author_level_six){?>
+                         <img src="<?php echo $url;?>/local/images/badges/elite.png" alt="<?php echo translate( 1152, $lang);?>" title="<?php echo translate( 1152, $lang);?>" class="elite_cls">
+                         
+                         <?php } ?>
+                         
+                         
+                         
+                         <?php if($collector_details >= $collector_level_one && $collector_level_two >= $collector_details){ $sc_badges = "sc1.png"; $clevel_no = 1; $clevel_price = $collector_level_one; } 
+             else if($collector_details >= $collector_level_two && $collector_level_three >= $collector_details){ $sc_badges = "sc2.png"; $clevel_no = 2; $clevel_price = $collector_level_two; }
+             else if($collector_details >= $collector_level_three && $collector_level_four >= $collector_details){ $sc_badges = "sc3.png"; $clevel_no = 3; $clevel_price = $collector_level_three;}
+             else if($collector_details >= $collector_level_four && $collector_level_five >= $collector_details){ $sc_badges = "sc4.png"; $clevel_no = 4; $clevel_price = $collector_level_four;}
+             else if($collector_details >= $collector_level_five && $collector_level_six >= $collector_details){ $sc_badges = "sc5.png"; $clevel_no = 5; $clevel_price = $collector_level_five;}
+             else if($collector_details >= $collector_level_six){ $sc_badges = "sc6.png"; $clevel_no = 6; $clevel_price = $collector_level_six;}
+             else { $sc_badges = ""; $clevel_no = 0; $clevel_price = 0;}
+             ?>
+                         
+                          <?php if(!empty($collector_details)){ if(!empty($sc_badges)){ ?>
+                        <img src="<?php echo $url;?>/local/images/badges/<?php echo $sc_badges;?>" alt="<?php echo translate( 1179, $lang);?> <?php echo $clevel_no.' : ';?> <?php echo translate( 1161, $lang);?> <?php echo $clevel_price.'+';?> <?php echo translate( 454, $lang);?> <?php echo translate( 25, $lang);?>" title="<?php echo translate( 1179, $lang);?> <?php echo $clevel_no.' : ';?> <?php echo translate( 1161, $lang);?> <?php echo $clevel_price.'+';?> <?php echo translate( 454, $lang);?> <?php echo translate( 25, $lang);?>" style="border-radius:0px;">
+                         <?php } } ?>
+                         
+                         <?php if(!empty($featured_count)){ ?>
+                         <img src="<?php echo $url;?>/local/images/badges/feature_item.png" alt="<?php echo translate( 478, $lang);?> : <?php echo translate( 1164, $lang);?> <?php echo translate( 454, $lang);?> <?php echo translate( 25, $lang);?>" title="<?php echo translate( 478, $lang);?> : <?php echo translate( 1164, $lang);?> <?php echo translate( 454, $lang);?> <?php echo translate( 25, $lang);?>" class="elite_cls">
+                         <?php } ?>
+                         
+                         
+                         
+                          <?php if($referred_details >= $referred_level_one && $referred_level_two >= $referred_details){ $ref_badges = "ref1.png"; $rlevel_no = 1; $rlevel_price = $referred_level_one; } 
+             else if($referred_details >= $referred_level_two && $referred_level_three >= $referred_details){ $ref_badges = "ref2.png"; $rlevel_no = 2; $rlevel_price = $referred_level_two; }
+             else if($referred_details >= $referred_level_three && $referred_level_four >= $referred_details){ $ref_badges = "ref3.png"; $rlevel_no = 3; $rlevel_price = $referred_level_three;}
+             else if($referred_details >= $referred_level_four && $referred_level_five >= $referred_details){ $ref_badges = "ref4.png"; $rlevel_no = 4; $rlevel_price = $referred_level_four;}
+             else if($referred_details >= $referred_level_five && $referred_level_six >= $referred_details){ $ref_badges = "ref5.png"; $rlevel_no = 5; $rlevel_price = $referred_level_five;}
+             else if($referred_details >= $referred_level_six){ $ref_badges = "ref6.png"; $rlevel_no = 6; $rlevel_price = $referred_level_six;}
+             else { $ref_badges = ""; $rlevel_no = 0; $rlevel_price = 0;}
+             ?>
+                         
+                         <?php if(!empty($referred_details)){ if(!empty($ref_badges)){ ?>
+                        <img src="<?php echo $url;?>/local/images/badges/<?php echo $ref_badges;?>" alt="<?php echo translate( 1170, $lang);?> <?php echo $rlevel_no.' : ';?> <?php echo translate( 1173, $lang);?> <?php echo $rlevel_price.'+';?> <?php echo translate( 1176, $lang);?>" title="<?php echo translate( 1170, $lang);?> <?php echo $rlevel_no.' : ';?> <?php echo translate( 1173, $lang);?> <?php echo $rlevel_price.'+';?> <?php echo translate( 1176, $lang);?>" style="border-radius:0px;">
+                         <?php } } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="author-profile-link"><a href="{{$url}}/{{$author_slug}}" class="btn btn-default btn-block">View author's profile</a></div>
+                    </div>
+                </div>
+
+<!-- End profile card -->
+
+
+
+
+
+
+
+
+
+
+
+<!--                       
                         <div class="product-widget">
                            <h3 class="prodect-info-heading"><?php echo translate( 556, $lang);?></h3>
                             <div class="prodect-information rating_move">
                             <div class="col-md-4">
-                            <a href="<?php echo $url;?>/<?php echo $author_slug;?>"><?php if(!empty($author_photo)){?><img src="<?php echo $url;?>/local/images/media/userphoto/<?php echo $author_photo;?>" class="itemauthor" border="0" alt="<?php echo $author;?>" /><?php } else { ?><img src="<?php echo $url;?>/local/images/nophoto.jpg" class="itemauthor" border="0" alt="<?php echo $author;?>" /><?php } ?></a>
+                            <a href="<?php echo $url;?>/<?php echo $author_slug;?>">
+                              <?php if(!empty($author_photo)){?>
+
+                              <img src="<?php echo $url;?>/local/images/media/userphoto/<?php echo $author_photo;?>" class="itemauthor" border="0" alt="<?php echo $author;?>" /><?php } else { ?>
+
+
+                              <img src="<?php echo $url;?>/local/images/nophoto.jpg" class="itemauthor" border="0" alt="<?php echo $author;?>" /><?php } ?>
+
+                            </a>
                             </div>
                             
                             <div class="col-md-8">
@@ -1374,7 +1547,7 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                   
                     <img src="<?php echo $url;?>/local/images/badges/exclusive.png" width="30" border="0" alt="<?php echo translate( 1146, $lang);?>" title="<?php echo translate( 1146, $lang);?>">
                        <?php } ?>  
-                       
+                     
                        <?php if(!empty($trends_details)){?>
                         <img src="<?php echo $url;?>/local/images/badges/trends.png" width="30" border="0" alt="<?php echo translate( 1149, $lang);?>" title="<?php echo translate( 1149, $lang);?>">
                          <?php } ?>
@@ -1435,6 +1608,17 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                             <div class="clearfix height10"></div>
                             
                         </div>
+-->
+
+
+
+
+
+
+
+
+
+
                         
                         <?php if($sale_count > 1){ $sale_text = translate( 625, $lang); } else { $sale_text = translate( 628, $lang); } ?>
                         <div class="product-widget">
@@ -1585,6 +1769,13 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
                         </div>
                     </aside>
                 </div>
+
+<!----------------------------------
+         End Sidebar
+------------------------------------>
+
+
+
             </div>
             
             
