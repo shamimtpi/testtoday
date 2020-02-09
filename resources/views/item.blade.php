@@ -1612,13 +1612,6 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 
 
 
-
-
-
-
-
-
-
                         
                         <?php if($sale_count > 1){ $sale_text = translate( 625, $lang); } else { $sale_text = translate( 628, $lang); } ?>
                         <div class="product-widget">

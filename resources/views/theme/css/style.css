@@ -1789,6 +1789,116 @@ custom-btn:focus {
     transform: translate(-50%, -50%)
 }
 
+/*blog button design*/
+.blog-video{
+    background: #ccc;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important
+
+
+}
+.blog-video-overlay{
+  background:rgba(0,0,0,0.1);
+  height: 200px;
+  position: relative;
+}
+
+.play-btn {
+  width: 50px;
+  height: 50px;
+  background: var(--site-button-color);
+  border-radius: 50%;
+  display: block;
+  margin: 0px auto;
+  box-shadow: var(--site-button-color);
+  position: absolute;
+  top: 40%;
+    left: 42%;
+}
+
+/* triangle */
+.play-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-40%) translateY(-50%);
+  transform: translateX(-40%) translateY(-50%);
+  transform-origin: center center;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid #fff;
+  z-index: 100;
+  -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* pulse wave */
+.play-btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation: pulsate1 2s;
+    animation: pulsate1 2s;
+    -webkit-animation-direction: forwards;
+    animation-direction: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps;
+    animation-timing-function: steps;
+    opacity: 1;
+    border-radius: 50%;
+    border: 1px dotted var(--site-button-color);
+    top: -46%;
+    left: -49%;
+    background:#23c6ea2e;
+}
+
+@-webkit-keyframes pulsate1 {
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+@keyframes pulsate1 {
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+
+
+
+
+
+
+
 /* ====================================
 11. FOOTER AREA
 =======================================*/
@@ -5460,12 +5570,11 @@ PRODUCT COUPON
 }
 
 .entry-body h3 {
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 600;
     line-height: 1.30em;
-    white-space: nowrap;
+    padding-bottom: 5px;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .entry-body h3 a {

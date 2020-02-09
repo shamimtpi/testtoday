@@ -69,6 +69,32 @@
     <script src="{{ asset('/') }}/local/resources/assets/admin/fontscript/jquery.fontselect.js"></script> 
 
     <script src="{{ asset('/') }}/local/resources/assets/admin/fontscript/color.js"></script>
+
+
+    <script src="{{asset('local/public/contents/backend/plugins/summernote')}}/js/summernote-lite.min.js"></script>
+
+    <script>
+      $('#id_cazary_full').summernote({
+        placeholder: 'Write Your Blog',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
+
+    <style>
+     .note-group-select-from-files {
+          display: none;
+        }
+    </style>
      
      
      

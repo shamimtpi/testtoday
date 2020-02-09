@@ -146,22 +146,11 @@ $(document).ready(function () {
 });	
 
 </script>
+       <!-- Summernote code editor -->
+    <link href="{{asset('local/public/contents/backend/plugins/summernote')}}/css/summernote.min.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="<?php echo $url;?>/local/resources/views/editor/style.css" />
-		
-		<script type="text/javascript" src="<?php echo $url;?>/local/resources/views/editor/cazary.min.js"></script>
-		<script type="text/javascript">
-(function($, window)
-{
-	$(function($)
-	{
-		
-		$("textarea#id_cazary_full").cazary({
-			commands: "FULL"
-		});
-	});
-})(jQuery, window);
-		</script>
+  
+
       
   
 <?php /* text editor */?>

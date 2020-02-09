@@ -43,7 +43,8 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 <link rel="stylesheet" href="<?php echo $url;?>/local/resources/views/theme/carousel/style.css">
 
 <?php /******* feature item **********/?>  
-
+ <!--Modal Video -->
+ <link rel="stylesheet" href="{{asset('local/public/contents/frontend/css')}}/modal-video.min.css">
 
 
 
@@ -865,7 +866,12 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 						
 						$height = '188px';
 					?>
-                    <iframe id="ytplayer" type="text/html" width="100%" height="<?php echo $height ?>" src="https://www.youtube.com/embed/<?php echo $id ?>?rel=0&showinfo=0&color=white&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+                    <!--<iframe id="ytplayer" type="text/html" width="100%" height="<?php echo $height ?>" src="https://www.youtube.com/embed/<?php echo $id ?>?rel=0&showinfo=0&color=white&iv_load_policy=3" frameborder="0" allowfullscreen></iframe> -->
+                    <div class="blog-video" style="background:url(https://img.youtube.com/vi/<?php echo $id;?>/hqdefault.jpg)no-repeat scroll 0 0 / 100% 100%">
+                    	<div class="blog-video-overlay">
+                    		<a class="play-btn" href="#" data-video-id="{{$id}}"></a>
+                    	</div>
+                    </div>
                     
                     <?php } 
 					if (strpos($blog->post_video, 'vimeo') > 0) {
@@ -889,8 +895,13 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 					$old_date = strtotime($date);
 					$dateonly = date('d M Y', $old_date);
 					?>
-                                    <h3><a href="<?php echo $url;?>/blog/<?php echo $blog->post_slug;?>"><?php echo $blog->post_title;?></a></h3>
-                                    <p><?php echo substr(strip_tags(html_entity_decode($blog->post_desc)),0,128).'..';?></p>
+                                    <h3><a href="<?php echo $url;?>/blog/<?php echo $blog->post_slug;?>">{{substr($blog->post_title,0,50).'..'}}</a></h3>
+
+                                  <!--  <p>
+                                    {{-- 	<?php echo substr(strip_tags(html_entity_decode($blog->post_desc)),0,128).'..';?> --}}
+                                    		
+                                    </p> -->
+
                                     <div class="read-more-date">
                                         <a href="<?php echo $url;?>/blog/<?php echo $blog->post_slug;?>"><?php echo translate( 76, $lang);?></a>
                                         <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $dateonly;?></span>
@@ -918,6 +929,13 @@ if(!empty(Cookie::get('lang'))){ $lang = Cookie::get('lang'); } else { if(!empty
 
 
       @include('footer')
+
+      <script src={{asset('local/public/contents/frontend/js')}}/jquery-modal-video.min.js></script>
+   <script>
+       $(".play-btn").modalVideo({
+       	autoplay:true,
+       });
+  </script>
       
       
 </body>

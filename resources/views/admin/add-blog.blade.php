@@ -115,9 +115,9 @@
                       
                       
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Post Title
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Post Title
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                  <input id="name"  class="form-control col-md-7 col-xs-12" required="required"  name="post_title[]" value="" type="text">
 						   @if ($errors->has('post_title'))
                                     <span class="help-block" style="color:red;">
@@ -130,9 +130,9 @@
                       
                       
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Description
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                
                   
                    <textarea id="id_cazary_full" placeholder="" required="required" class="form-control col-md-7 col-xs-12" name="post_desc[]" style="width:640px; height:300px;"></textarea>
@@ -158,9 +158,9 @@
                       
                       
                        <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">URL Slug <span class="required">*</span>
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">URL Slug <span class="required">*</span>
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                           <input id="slug" class="form-control col-md-7 col-xs-12"  name="slug" value="" type="text" required="required">
 						  ( Ex : an appeal to charismatic friends ) - Blog Title
                         
@@ -169,9 +169,9 @@
                       
                       
                        <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Media Type
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Media Type
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                    <select class="form-control col-md-7 col-xs-12"  name="media_type"  onChange="showDiv(this)" required="required">
 						  <option value=""></option>
 						  <?php 
@@ -187,9 +187,9 @@
               
                 
                 <div class="item form-group" id="mediaurl">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Youtube or Vimeo Url
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Youtube or Vimeo Url
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                  <input id="video_url" class="form-control col-md-7 col-xs-12"  name="video_url" value="{{ old('video_url') }}" type="text">
 						   <br/>( Example : https://www.youtube.com/watch?v=2MpUj-Aua48  OR https://vimeo.com/56282283 )
                         
@@ -200,9 +200,9 @@
               
                               
                  <div class="item form-group" id="mediamp3">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Mp3 Upload
+                        <label class="ccontrol-label col-md-2 col-sm-2 col-xs-12" for="name">Mp3 Upload
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                  <input type="file" id="audio_file" name="audio_file" class="form-control col-md-7 col-xs-12">
 						  
 						  @if ($errors->has('audio_file'))
@@ -217,9 +217,9 @@
               
                 
                 <div class="item form-group" id="mediaimg">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Image
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Image
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                 <input type="file" id="photo" name="photo" class="form-control col-md-7 col-xs-12">
 						  
 						  @if ($errors->has('photo'))
@@ -234,9 +234,9 @@
                
                
                <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Tags
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Tags
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                    <input id="tags" class="form-control col-md-7 col-xs-12"  name="tags"  type="text" data-role="tagsinput">
 					<p>(Example : blog post,latest post,popular blog,trending,social media )</p>   
                 </div>

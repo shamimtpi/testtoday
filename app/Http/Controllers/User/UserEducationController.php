@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use App\Models\User\usereducation;
+use App\Models\user\usereducation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;

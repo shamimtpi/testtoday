@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use App\Models\User\user_emp_history;
+use App\Models\user\user_emp_history;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;

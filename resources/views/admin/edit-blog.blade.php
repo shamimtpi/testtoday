@@ -174,9 +174,9 @@
                           
                       
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Post Title
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Post Title
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                  <input id="name" class="form-control col-md-7 col-xs-12"  name="post_title[]" value="<?php echo $viewname; ?>" type="text" required="required">
 						   @if ($errors->has('post_title'))
                                     <span class="help-block" style="color:red;">
@@ -190,9 +190,9 @@
                       
                       
                        <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Description
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                  
                   
                   
@@ -222,9 +222,9 @@
                      
                      
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">URL Slug <span class="required">*</span>
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">URL Slug <span class="required">*</span>
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                           <input id="slug" class="form-control col-md-7 col-xs-12"  name="slug" value="<?php echo $blog[0]->post_slug;?>" type="text" required="required">
 						  ( Ex : an appeal to charismatic friends ) - Blog Title
                         
@@ -236,9 +236,9 @@
                       
                       
                  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Media Type
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Media Type
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                   <select class="form-control col-md-7 col-xs-12"  name="media_type"  onChange="showDiv(this)" required="required">
 						  <option value=""></option>
 						  <?php 
@@ -263,9 +263,9 @@
              
              <div class="item form-group" id="mediaurl" <?php if($blog[0]->post_media_type!="video"){?> style="display:none;" <?php } ?>>
                 
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Youtube or Vimeo Url
+                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Youtube or Vimeo Url
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                   <input id="video_url" class="form-control col-md-7 col-xs-12"  name="video_url" value="<?php echo $blog[0]->post_video;?>" type="text" required="required">
 						   <br/>( Example : https://www.youtube.com/watch?v=2MpUj-Aua48 OR https://vimeo.com/56282283 )
                 </div>
@@ -276,9 +276,9 @@
 					  
 				 <div class="item form-group" id="mediamp3" <?php if($blog[0]->post_media_type!="mp3"){?> style="display:none;" <?php } ?>>
                                 
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Mp3 Upload
+                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Mp3 Upload
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                   <input type="file" id="audio_file" name="audio_file" class="form-control col-md-7 col-xs-12" <?php if(empty($blog[0]->post_audio)){?>required="required"<?php } ?>>
 						  <?php if($blog[0]->post_media_type=="mp3"){?>
                           <?php $url = URL::to("/"); 
@@ -299,9 +299,9 @@
                
                <div class="item form-group" id="mediaimg" <?php if($blog[0]->post_media_type!="image"){?> style="display:none;" <?php } ?>>
                                  
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Image
+                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Image
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12"> 
+                        <div class="col-md-10 col-sm-10 col-xs-12"> 
                   <input type="file" id="photo" name="photo" class="form-control col-md-7 col-xs-12" l>
 						  
 						  @if ($errors->has('photo'))
@@ -339,9 +339,9 @@
 				
                  
                   <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Tags
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Tags
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
                   <input id="tags" class="span8" value="<?php echo $blog[0]->post_tags;?>"  name="tags"  type="text" data-role="tagsinput" required="required">
                   <p>(Example : blog post,latest post,popular blog,trending,social media )</p>   
                 </div>
